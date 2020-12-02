@@ -51,7 +51,7 @@
         local:MvxBind="Click CenterClick" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
+    <MvvmCross.DroidX.RecyclerView.MvxRecyclerView
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

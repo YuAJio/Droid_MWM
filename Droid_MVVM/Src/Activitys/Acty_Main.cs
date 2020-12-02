@@ -12,7 +12,6 @@ namespace Droid_MVVM.Src.Activitys
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Acty_Main);
-
         }
     }
 }
