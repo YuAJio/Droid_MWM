@@ -1,27 +1,20 @@
-﻿using System;
+﻿using DMWM_Core.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Droid_MVVM.Domain.Models;
 
-namespace Droid_MVVM.Proxys.HttpRequest
+namespace DMWM_Core.Proxys.HttpRequest
 {
     /// <summary>
     /// 动画信息网络访问接口
     /// </summary>
-    public class HttpApi_AnimationInfo
+    public class HttpApi_Anime
     {
         #region 单例
-        private static readonly Lazy<HttpApi_AnimationInfo> instance = new Lazy<HttpApi_AnimationInfo>(() => new HttpApi_AnimationInfo());
-        private HttpApi_AnimationInfo() { }
-        public static HttpApi_AnimationInfo Instance
+        private static readonly Lazy<HttpApi_Anime> instance = new Lazy<HttpApi_Anime>(() => new HttpApi_Anime());
+        private HttpApi_Anime() { }
+        public static HttpApi_Anime Instance
         {
             get
             {

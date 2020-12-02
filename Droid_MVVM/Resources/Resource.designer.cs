@@ -9111,46 +9111,49 @@ namespace Droid_MVVM
 			public const int triangle = 2131231082;
 			
 			// aapt resource value: 0x7F08016B
-			public const int tv_title_left = 2131231083;
+			public const int tv_title_center = 2131231083;
 			
 			// aapt resource value: 0x7F08016C
-			public const int tv_title_right = 2131231084;
+			public const int tv_title_left = 2131231084;
 			
 			// aapt resource value: 0x7F08016D
-			public const int @unchecked = 2131231085;
+			public const int tv_title_right = 2131231085;
 			
 			// aapt resource value: 0x7F08016E
-			public const int uniform = 2131231086;
+			public const int @unchecked = 2131231086;
 			
 			// aapt resource value: 0x7F08016F
-			public const int unlabeled = 2131231087;
+			public const int uniform = 2131231087;
 			
 			// aapt resource value: 0x7F080170
-			public const int up = 2131231088;
+			public const int unlabeled = 2131231088;
 			
 			// aapt resource value: 0x7F080171
-			public const int useLogo = 2131231089;
+			public const int up = 2131231089;
 			
 			// aapt resource value: 0x7F080172
-			public const int view_offset_helper = 2131231090;
+			public const int useLogo = 2131231090;
 			
 			// aapt resource value: 0x7F080173
-			public const int view_tree_saved_state_registry_owner = 2131231091;
+			public const int view_offset_helper = 2131231091;
 			
 			// aapt resource value: 0x7F080174
-			public const int visible = 2131231092;
+			public const int view_tree_saved_state_registry_owner = 2131231092;
 			
 			// aapt resource value: 0x7F080175
-			public const int visible_removing_fragment_view_tag = 2131231093;
+			public const int visible = 2131231093;
 			
 			// aapt resource value: 0x7F080176
-			public const int withText = 2131231094;
+			public const int visible_removing_fragment_view_tag = 2131231094;
 			
 			// aapt resource value: 0x7F080177
-			public const int wrap = 2131231095;
+			public const int withText = 2131231095;
 			
 			// aapt resource value: 0x7F080178
-			public const int wrap_content = 2131231096;
+			public const int wrap = 2131231096;
+			
+			// aapt resource value: 0x7F080179
+			public const int wrap_content = 2131231097;
 			
 			static Id()
 			{
@@ -9375,7 +9378,7 @@ namespace Droid_MVVM
 			public const int Acty_Main = 2131427356;
 			
 			// aapt resource value: 0x7F0B001D
-			public const int AdItem_AnimationInfo = 2131427357;
+			public const int aditem_animation = 2131427357;
 			
 			// aapt resource value: 0x7F0B001E
 			public const int browser_actions_context_menu_page = 2131427358;
