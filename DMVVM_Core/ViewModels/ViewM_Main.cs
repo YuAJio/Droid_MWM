@@ -1,9 +1,11 @@
-﻿using DMWM_Core.Proxys.HttpRequest;
+﻿using DMWM_Core.Proxys.Extensions;
+using DMWM_Core.Proxys.HttpRequest;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -12,6 +14,10 @@ namespace DMWM_Core.ViewModels
 {
     public class ViewM_Main : MvxViewModel
     {
+        public Action Act_ShowWaitDialog { get; set; }
+        public Action Act_HideWaitDialog { get; set; }
+
+        public Action<int> Act_ViewClick { get; set; }
         public ViewM_Main()
         {
 
@@ -67,24 +73,34 @@ namespace DMWM_Core.ViewModels
             TitleLeft = "Peace";
             TitleRight = "Peace";
 
+            Act_ShowWaitDialog?.Invoke();
             Task.Run(async () =>
             {
                 var result = await HttpApi_Anime.Instance.AnimeApi_GetAnimeList(2020);
                 return result;
             }).ContinueWith(x =>
             {
+                Act_HideWaitDialog?.Invoke();
                 if (x.Exception != null)
                 {
                 }
-                this.List_Anime = x.Result;
+                if (x.Result != null)
+                    x.Result.ForEach(y => y.AreaClickEven = new MvxCommand(() => Console.WriteLine(y.Year)));
+                if (List_Anime == null)
+                    List_Anime = x.Result.ToObservableCollection();
+                else
+                    List_Anime.AddRange(x.Result);
             }, TaskScheduler.FromCurrentSynchronizationContext());
         }
 
 
         #region 列表处理
-        private IList<Models.Mod_Anime> _animeList;
-        public IList<Models.Mod_Anime> List_Anime { get { return _animeList; } set { _animeList = value; RaisePropertyChanged(() => List_Anime); } }
+        private ObservableCollection<Models.Mod_Anime> _animeList;
+        public ObservableCollection<Models.Mod_Anime> List_Anime { get { return _animeList; } set { _animeList = value; RaisePropertyChanged(() => List_Anime); } }
 
+        /// <summary>
+        /// Item点击事件
+        /// </summary>
         public ICommand ItemClickCommand
         {
             get
@@ -96,14 +112,12 @@ namespace DMWM_Core.ViewModels
                 });
             }
         }
-        #endregion
 
-        #region 适配器属性处理
-        private string _name;
-        public string Name
+        public ICommand AreaClickEven => _areaClickCommand ?? (_areaClickCommand = new MvxCommand(AreaClickEvenHandler));
+        private ICommand _areaClickCommand;
+        private void AreaClickEvenHandler()
         {
-            get => _name;
-            set => SetProperty(ref _name, value);
+
         }
         #endregion
 
